@@ -1,1 +1,1 @@
-[x] Attempt to create a social media app
+Attempt to create a social media app
