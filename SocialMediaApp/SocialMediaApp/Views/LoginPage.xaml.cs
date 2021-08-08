@@ -16,8 +16,20 @@ namespace SocialMediaApp.Views
         public LoginPage()
         {
             InitializeComponent();
+            Init(); 
         }
 
+        private void Init()
+        {
+            BackgroundColor = Constants.BackgroundColor;
+            Lbl_Username.TextColor = Constants.MainTextColor;
+            Lbl_Password.TextColor = Constants.MainTextColor;
+            AcvititySpinner.IsVisible = false;
+            LoginIcon.HeightRequest = Constants.LoginIconHeight;
+
+            Entry_Username.Completed += (s, e) => Entry_Password.Focus();
+            Entry_Password.Completed += (s, e) => SignInProcedure(s, e); 
+        }
         private void SignInProcedure(object Sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
