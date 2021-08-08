@@ -1,4 +1,5 @@
-﻿using SocialMediaApp.Views;
+﻿using SocialMediaApp.Data;
+using SocialMediaApp.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,6 +8,9 @@ namespace SocialMediaApp
 {
     public partial class App : Application
     {
+        static TokenDatabaseController tokenDatabase;
+        static UserDatabaseController userDatabase; 
+
         public App()
         {
             InitializeComponent();
@@ -24,6 +28,34 @@ namespace SocialMediaApp
 
         protected override void OnResume()
         {
+        }
+
+
+
+
+
+        public static UserDatabaseController UserDatabase
+        {
+            get
+            {
+                if (userDatabase == null)
+                {
+                    userDatabase = new UserDatabaseController();
+                }
+                return userDatabase;
+            }
+        }
+
+        public static TokenDatabaseController TokenDatabase
+        {
+            get
+            {
+                if (tokenDatabase == null)
+                {
+                    tokenDatabase = new TokenDatabaseController();
+                }
+                return tokenDatabase;
+            }
         }
     }
 }
