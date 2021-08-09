@@ -19,15 +19,15 @@ namespace SocialMediaApp.Droid.Data
 {
     public class SQLite_Android : ISQLite
     {
-        public SQLite_Android(){}
-        public SQLite.SQLiteConnection GetConnection()
+        public SQLite_Android() { }
+        public SQLiteConnection GetConnection()
         {
-            var sqliteFileName = "TestDB.db3";
+            string sqliteFileName = "TestDB.db3";
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var path = Path.Combine(documentPath, sqliteFileName);
-            var conn = new SQLiteConnection(path);
+            string path = Path.Combine(documentPath, sqliteFileName);
+            SQLiteConnection conn = new SQLiteConnection(path);
 
-            return conn; 
+            return conn;
 
         }
     }
