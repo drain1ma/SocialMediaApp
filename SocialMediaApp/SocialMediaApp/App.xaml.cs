@@ -9,8 +9,8 @@ namespace SocialMediaApp
     public partial class App : Application
     {
         static TokenDatabaseController tokenDatabase;
-        static UserDatabaseController userDatabase; 
-
+        static UserDatabaseController userDatabase;
+        static RestService restService; 
         public App()
         {
             InitializeComponent();
@@ -55,6 +55,18 @@ namespace SocialMediaApp
                     tokenDatabase = new TokenDatabaseController();
                 }
                 return tokenDatabase;
+            }
+        }
+
+        public static RestService RestService
+        {
+            get
+            {
+                if (restService == null)
+                {
+                    restService = new RestService(); 
+                }
+                return restService; 
             }
         }
     }

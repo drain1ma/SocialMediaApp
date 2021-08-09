@@ -30,12 +30,23 @@ namespace SocialMediaApp.Views
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Password.Completed += (s, e) => SignInProcedure(s, e); 
         }
-        private void SignInProcedure(object Sender, EventArgs e)
+        private async void SignInProcedure(object Sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
-            _ = user.CheckInformation()
-                ? DisplayAlert("Login", "Login Successful", "Ok")
-                : DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
+
+            if (user.CheckInformation())
+            {
+                DisplayAlert("Login", "Login Successful", "Ok");
+                var result = await App.RestService.Login(user); 
+                if (result.AccessToken == null)
+                {
+                    App.UserDatabase.SaveUser(user);
+                }
+            }
+            else
+            {
+                DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
+            }
         }
     }
 }
