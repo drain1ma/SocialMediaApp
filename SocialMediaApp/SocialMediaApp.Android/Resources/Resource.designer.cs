@@ -11692,7 +11692,7 @@ namespace SocialMediaApp.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int LogoIcon = 2131165296;
+			public const int LoginIcon = 2131165296;
 			
 			// aapt resource value: 0x7F070071
 			public const int material_ic_calendar_black_24dp = 2131165297;

@@ -36,16 +36,16 @@ namespace SocialMediaApp.Views
 
             if (user.CheckInformation())
             {
-                DisplayAlert("Login", "Login Successful", "Ok");
-                var result = await App.RestService.Login(user); 
+                await DisplayAlert("Login", "Login Successful", "Ok");
+                Token result = await App.RestService.Login(user);
                 if (result.AccessToken == null)
                 {
-                    App.UserDatabase.SaveUser(user);
+                    _ = App.UserDatabase.SaveUser(user);
                 }
             }
             else
             {
-                DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
+                await DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
             }
         }
     }

@@ -22,13 +22,12 @@ namespace SocialMediaApp.Droid.Data
         public SQLite_Android() { }
         public SQLiteConnection GetConnection()
         {
-            string sqliteFileName = "TestDB.db3";
+            string sqliteFileName = "SocialMediaApp.db3";
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string path = Path.Combine(documentPath, sqliteFileName);
             SQLiteConnection conn = new SQLiteConnection(path);
 
             return conn;
-
         }
     }
 }

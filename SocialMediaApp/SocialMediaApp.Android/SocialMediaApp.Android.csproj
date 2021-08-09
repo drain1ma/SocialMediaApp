@@ -85,7 +85,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\LogoIcon.png" />
+    <AndroidResource Include="Resources\drawable\LoginIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocialMediaApp\SocialMediaApp.csproj">
