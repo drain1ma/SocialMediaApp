@@ -18,7 +18,6 @@
             <Label x:Name="Lbl_Password" Text="Password"/>
             <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True"/>
             <Button x:Name="Btn_Signin" Text="Sign in" Clicked="SignInProcedure"/>
-            <Button x:Name="Btn_Signup" Text="Sign up" Clicked="SingupPage"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

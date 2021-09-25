@@ -7,6 +7,6 @@ namespace SocialMediaApp.Data
 {
     public interface ISQLite
     {
-        SQLiteAsyncConnection GetConnection(); 
+        SQLiteConnection GetConnection(); 
     }
 }

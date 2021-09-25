@@ -41,11 +41,5 @@ namespace SocialMediaApp.Views
                 await DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
             }
         }
-
-        private void SignupPage()
-        {
-
-        }
-
     }
 }
