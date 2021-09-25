@@ -37,11 +37,8 @@ namespace SocialMediaApp.Views
             if (user.CheckInformation())
             {
                 await DisplayAlert("Login", "Login Successful", "Ok");
-                Token result = await App.RestService.Login(user);
-                if (result.AccessToken == null)
-                {
-                    _ = App.UserDatabase.SaveUser(user);
-                }
+                _ = App.UserDatabase.SaveUser(user);
+
             }
             else
             {

@@ -11,7 +11,7 @@ namespace SocialMediaApp.Data
     public class RestService
     {
         HttpClient client;
-        string grant_type = "password"; 
+        string grant_type = "password";
         public RestService()
         {
             client = new HttpClient();
@@ -21,12 +21,11 @@ namespace SocialMediaApp.Data
 
         public async Task<Token> Login(User user)
         {
-            var postData = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
             postData.Add(new KeyValuePair<string, string>("grant_type", grant_type));
             postData.Add(new KeyValuePair<string, string>("username", user.Username));
             postData.Add(new KeyValuePair<string, string>("password", user.Password));
-            var content = new FormUrlEncodedContent(postData);
-            var weburl = "www.test.com";
+            FormUrlEncodedContent content = new FormUrlEncodedContent(postData);
             var response = await PostResponseLogin<Token>(Constants.LoginUrl, content);
             DateTime dt = new DateTime();
             dt = DateTime.Today;
