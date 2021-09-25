@@ -3,51 +3,51 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace SocialMediaApp.Data
 {
     public class UserDatabaseController
     {
-        static object locker = new object();
-
-        SQLiteConnection database;
+        static readonly object locker = new object();
+        private SQLiteAsyncConnection database;
 
         public UserDatabaseController()
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
-            _ = database.CreateTable<User>();
+            _ = database.CreateTableAsync<User>();
         }
 
-        public User GetUser()
+        public Task<User> GetUser(int id)
         {
             lock (locker)
             {
-                return database.Table<User>().Count() == 0 ? null : database.Table<User>().First();
+                return database.FindAsync<User>(id);
             }
         }
 
-        public int SaveUser(User user)
+        public Task SaveUser(User user)
         {
             lock (locker)
             {
-                if (user.ID != 0)
+                if (database.FindAsync<User>(user.ID) != null)
                 {
-                    _ = database.Update(user);
-                    return user.ID;
+                    _ = database.UpdateAsync(user);
+                    return database.GetAsync<User>(user.ID);
                 }
                 else
                 {
-                    return database.Insert(user);
+                    return database.InsertAsync(user);
                 }
             }
         }
 
-        public int DeleteUser(int id)
+        public Task DeleteUser(int id)
         {
             lock (locker)
             {
-                return database.Delete<User>(id);
+                return database.DeleteAsync<User>(id);
             }
         }
     }
