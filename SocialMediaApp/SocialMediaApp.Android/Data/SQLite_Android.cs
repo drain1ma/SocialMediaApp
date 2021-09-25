@@ -26,7 +26,6 @@ namespace SocialMediaApp.Droid.Data
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string path = Path.Combine(documentPath, sqliteFileName);
             SQLiteConnection conn = new SQLiteConnection(path);
-
             return conn;
         }
     }

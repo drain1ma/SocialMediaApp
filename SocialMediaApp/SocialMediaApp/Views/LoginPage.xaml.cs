@@ -1,13 +1,7 @@
 ﻿using SocialMediaApp.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 namespace SocialMediaApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -16,7 +10,8 @@ namespace SocialMediaApp.Views
         public LoginPage()
         {
             InitializeComponent();
-            Init(); 
+            Init();
+            
         }
 
         private void Init()
@@ -32,11 +27,12 @@ namespace SocialMediaApp.Views
         }
         private async void SignInProcedure(object Sender, EventArgs e)
         {
+            
             User user = new User(Entry_Username.Text, Entry_Password.Text);
 
             if (user.CheckInformation())
             {
-                await DisplayAlert("Login", "Login Successful", "Ok");
+                await DisplayAlert("Login", user.Username + " has logged in", "Ok");
                 _ = App.UserDatabase.SaveUser(user);
 
             }
@@ -45,5 +41,11 @@ namespace SocialMediaApp.Views
                 await DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
             }
         }
+
+        private void SignupPage()
+        {
+
+        }
+
     }
 }
