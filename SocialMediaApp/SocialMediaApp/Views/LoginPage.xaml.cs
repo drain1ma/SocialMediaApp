@@ -36,7 +36,7 @@ namespace SocialMediaApp.Views
 
             if (user.CheckInformation())
             {
-                DisplayAlert("Login", "Login Successful", "Ok");
+                _ = DisplayAlert("Login", "Login Successful", "Ok");
                 var result = await App.RestService.Login(user); 
                 if (result.AccessToken == null)
                 {
@@ -45,7 +45,7 @@ namespace SocialMediaApp.Views
             }
             else
             {
-                DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
+                _ = DisplayAlert("Login", "Login Failed, wrong username or password", "Ok");
             }
         }
     }
