@@ -24,5 +24,7 @@ namespace SocialMediaApp.Models
         {
             return Username != null && Password != null;
         }
+
+
     }
 }

@@ -61,9 +61,9 @@ namespace SocialMediaApp.Views
             }
         }
 
-        private async void SignUpPage(object Sender, EventArgs e)
+        private void SignUpPage(object Sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignupPage());
+            App.Current.MainPage = new SignupPage();
         }
     }
 }
