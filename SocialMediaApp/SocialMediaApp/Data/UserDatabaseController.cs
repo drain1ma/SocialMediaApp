@@ -31,15 +31,16 @@ namespace SocialMediaApp.Data
         {
             lock (locker)
             {
-                if (user.ID != 0)
-                {
-                    _ = database.Update(user);
-                    return user.ID;
-                }
-                else
-                {
-                    return database.Insert(user);
-                }
+                _ = database.Update(user);
+                return user.ID;
+            }
+        }
+
+        public void AddUser(User user)
+        {
+            lock (locker)
+            {
+                database.Insert(user);
             }
         }
 
