@@ -16,7 +16,7 @@
             <Label x:Name="Lbl_Username" Text="Username"/>
             <Entry x:Name="Entry_Username" Placeholder="Username"/>
             <Label x:Name="Lbl_Password" Text="Password"/>
-            <Entry x:Name="Entry_Password" Placeholder="Password"/>
+            <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True"/>
             <Button x:Name="Btn_Signin" Text="Sign in" Clicked="SignInProcedure"/>
         </StackLayout>
     </StackLayout>
